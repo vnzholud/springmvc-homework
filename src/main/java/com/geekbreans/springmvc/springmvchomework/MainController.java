@@ -1,9 +1,7 @@
-package Controlers;
+package com.geekbreans.springmvc.springmvchomework;
 
 
-import Repositories.ProductsRepository;
-import data.Product;
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,11 +9,12 @@ import java.util.List;
 @RestController
 public class MainController {
 
+    private final ProductsRepository productsRepository;
+
+    @Autowired
     public MainController(ProductsRepository productsRepository) {
         this.productsRepository = productsRepository;
     }
-
-    private ProductsRepository productsRepository;
 
     @GetMapping("/v1/products")
     public List<Product> getAllProducts() {
@@ -38,8 +37,12 @@ public class MainController {
     }
 
     @GetMapping("/v1/products/add")
-    public void addProduct(@RequestBody Product product){
+    public void addProduct(@RequestParam Long id, @RequestParam String title, @RequestParam Long price){
+
+        Product product = new Product(id, title, price);
         productsRepository.add(product);
+
+
     }
 
 

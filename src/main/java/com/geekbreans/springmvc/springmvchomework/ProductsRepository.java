@@ -1,6 +1,5 @@
-package Repositories;
+package com.geekbreans.springmvc.springmvchomework;
 
-import data.Product;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -39,9 +38,9 @@ public class ProductsRepository {
                 .orElseThrow(() -> new RuntimeException("Product hat man nischt gesucht!"));
     }
 
-    public void add(Product p) {
+    public void add(Product product) {
 
-        products.add(p);
+        products.add(product);
 
     }
 

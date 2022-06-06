@@ -1,4 +1,4 @@
-package data;
+package com.geekbreans.springmvc.springmvchomework;
 
 public class Product {
 
