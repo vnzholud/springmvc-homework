@@ -45,7 +45,7 @@ public class ProductsRepository {
 
     }
 
-    public void deleteAll() {
+    public void deleteAllproducts() {
 
         products.clear();
     }
